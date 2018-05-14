@@ -6,5 +6,6 @@
   "emmet.syntaxProfiles": {
     "javascript": "jsx"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "prettier.singleQuote": true
 }
