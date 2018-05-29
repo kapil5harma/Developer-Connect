@@ -40,7 +40,7 @@ class AddExperience extends Component {
       title: this.state.title,
       location: this.state.location,
       from: this.state.from,
-      to: this.state.location,
+      to: this.state.to,
       current: this.state.current,
       description: this.state.description
     };
