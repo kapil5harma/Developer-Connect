@@ -6,7 +6,6 @@ const InputGroup = ({
   name,
   placeholder,
   value,
-  label,
   error,
   icon,
   type,

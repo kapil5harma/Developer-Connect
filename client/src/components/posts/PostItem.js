@@ -1,35 +1,35 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import classnames from 'classnames';
 import { Link } from 'react-router-dom';
 import { deletePost, addLike, removeLike } from '../../actions/postActions';
 
 class PostItem extends Component {
-  onDeleteClick = id => {
-    // console.log('id: ', id);
+  onDeleteClick(id) {
     this.props.deletePost(id);
-  };
+  }
 
-  onLikeClick = id => {
+  onLikeClick(id) {
     this.props.addLike(id);
-  };
+  }
 
-  onUnlikeClick = id => {
+  onUnlikeClick(id) {
     this.props.removeLike(id);
-  };
+  }
 
-  findUserLike = likes => {
+  findUserLike(likes) {
     const { auth } = this.props;
     if (likes.filter(like => like.user === auth.user.id).length > 0) {
       return true;
     } else {
       return false;
     }
-  };
+  }
 
   render() {
     const { post, auth, showActions } = this.props;
+    console.log('this.props in postItem: ', this.props);
 
     return (
       <div className="card card-body mb-3">
@@ -77,8 +77,7 @@ class PostItem extends Component {
                     type="button"
                     className="btn btn-danger mr-1"
                   >
-                    {' '}
-                    <i className="fas fa-times" />{' '}
+                    <i className="fas fa-times" />
                   </button>
                 ) : null}
               </span>

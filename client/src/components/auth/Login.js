@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import classnames from 'classnames';
 import { loginUser } from '../../actions/authActions';
 import TextFieldGroup from '../common/TextFieldGroup';
 
@@ -18,28 +17,30 @@ class Login extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
-  componentDidMount = () => {
+  componentDidMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
     }
-  };
+  }
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
     }
+
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-  };
+  }
 
   onSubmit(e) {
     e.preventDefault();
+
     const userData = {
       email: this.state.email,
       password: this.state.password
     };
-    // console.log('user: ', user);
+
     this.props.loginUser(userData);
   }
 
@@ -49,6 +50,7 @@ class Login extends Component {
 
   render() {
     const { errors } = this.state;
+
     return (
       <div className="login">
         <div className="container">
@@ -76,7 +78,6 @@ class Login extends Component {
                   onChange={this.onChange}
                   error={errors.password}
                 />
-
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
             </div>

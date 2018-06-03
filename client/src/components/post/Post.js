@@ -3,17 +3,24 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import PostItem from '../posts/PostItem';
+// import CommentForm from './CommentForm';
+// import CommentFeed from './CommentFeed';
 import Spinner from '../common/Spinner';
 import { getPost } from '../../actions/postActions';
 
 class Post extends Component {
-  componentDidMount = () => {
+  componentDidMount() {
+    console.log('Entered componentDidMount');
     this.props.getPost(this.props.match.params.id);
-  };
+    console.log(' ********** this.props: ', this.props);
+    // console.log('this.props 1111111: ', this.props);
+  }
 
   render() {
-    const { post, loading } = this.props.post;
+    const { post, posts, loading } = this.props.post;
     console.log('this.props: ', this.props);
+    console.log('post: ', post);
+    console.log('posts: ', posts);
     let postContent;
 
     if (post === null || loading || Object.keys(post).length === 0) {

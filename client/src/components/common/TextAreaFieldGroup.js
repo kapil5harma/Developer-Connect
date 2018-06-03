@@ -6,7 +6,6 @@ const TextAreaFieldGroup = ({
   name,
   placeholder,
   value,
-  label,
   error,
   info,
   onChange

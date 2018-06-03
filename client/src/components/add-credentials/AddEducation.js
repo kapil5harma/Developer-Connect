@@ -12,7 +12,7 @@ class AddEducation extends Component {
     this.state = {
       school: '',
       degree: '',
-      fieldOfStudy: '',
+      fieldofstudy: '',
       from: '',
       to: '',
       current: false,
@@ -26,38 +26,38 @@ class AddEducation extends Component {
     this.onCheck = this.onCheck.bind(this);
   }
 
-  componentWillReceiveProps = nextProps => {
+  componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-  };
+  }
 
-  onSubmit = e => {
+  onSubmit(e) {
     e.preventDefault();
-    // console.log('submit');
+
     const eduData = {
       school: this.state.school,
       degree: this.state.degree,
-      fieldOfStudy: this.state.fieldOfStudy,
+      fieldofstudy: this.state.fieldofstudy,
       from: this.state.from,
-      to: this.state.location,
+      to: this.state.to,
       current: this.state.current,
       description: this.state.description
     };
 
     this.props.addEducation(eduData, this.props.history);
-  };
+  }
 
-  onChange = e => {
+  onChange(e) {
     this.setState({ [e.target.name]: e.target.value });
-  };
+  }
 
-  onCheck = e => {
+  onCheck(e) {
     this.setState({
       disabled: !this.state.disabled,
       current: !this.state.current
     });
-  };
+  }
 
   render() {
     const { errors } = this.state;
@@ -77,7 +77,7 @@ class AddEducation extends Component {
               <small className="d-block pb-3">* = required fields</small>
               <form onSubmit={this.onSubmit}>
                 <TextFieldGroup
-                  placeholder="* School "
+                  placeholder="* School"
                   name="school"
                   value={this.state.school}
                   onChange={this.onChange}
@@ -92,10 +92,10 @@ class AddEducation extends Component {
                 />
                 <TextFieldGroup
                   placeholder="* Field of Study"
-                  name="fieldOfStudy"
-                  value={this.state.fieldOfStudy}
+                  name="fieldofstudy"
+                  value={this.state.fieldofstudy}
                   onChange={this.onChange}
-                  error={errors.fieldOfStudy}
+                  error={errors.fieldofstudy}
                 />
                 <h6>From Date</h6>
                 <TextFieldGroup
@@ -134,7 +134,7 @@ class AddEducation extends Component {
                   value={this.state.description}
                   onChange={this.onChange}
                   error={errors.description}
-                  info="Tell us a little about the program that you attended"
+                  info="Tell us about the program that you were in"
                 />
                 <input
                   type="submit"
