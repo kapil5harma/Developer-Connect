@@ -17,12 +17,8 @@ class PostForm extends Component {
   }
 
   componentWillReceiveProps = nextProps => {
-    // console.log('nextProps: ', nextProps);
-
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
-      // console.log('nextProps.errors: ', nextProps.errors);
-      // console.log('errors: ', errors);
     }
   };
 
@@ -47,7 +43,6 @@ class PostForm extends Component {
 
   render() {
     const { errors } = this.state;
-    console.log('errors: ', errors);
 
     return (
       <div className="post-form mb-3">
