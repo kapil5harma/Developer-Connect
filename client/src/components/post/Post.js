@@ -13,7 +13,6 @@ class Post extends Component {
 
   render() {
     const { post, loading } = this.props.post;
-    console.log('this.props: ', this.props);
     let postContent;
 
     if (post === null || loading || Object.keys(post).length === 0) {
