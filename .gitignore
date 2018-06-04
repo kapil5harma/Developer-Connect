@@ -8,6 +8,7 @@
 
 # config
 /config/keys_dev.js
+# ./config/keys.js
 
 # dependencies
 /node_modules
