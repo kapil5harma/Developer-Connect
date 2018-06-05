@@ -7,7 +7,14 @@ const initialState = {};
 const middleware = [thunk];
 let store;
 
-if (window.navigator.userAgent.includes('Chrome')) {
+function isMobileDevice() {
+  return (
+    typeof window.orientation !== 'undefined' ||
+    navigator.userAgent.indexOf('IEMobile') !== -1
+  );
+}
+
+if (window.navigator.userAgent.includes('Chrome') && !isMobileDevice()) {
   store = createStore(
     rootReducer,
     initialState,
