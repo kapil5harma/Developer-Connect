@@ -1,2 +1,3 @@
-# Developer-Connect
-A social network built using MERN stack while in the process of brushing up JavaScript skills while learning React, Redux.
+## Developer-Connect
+A social network built using MERN stack. 
+This project uses MongoDB for database, Express for Server side code, React for web app frontend, and Node Server.
